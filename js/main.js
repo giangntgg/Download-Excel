@@ -2,7 +2,140 @@
 (function ($) {
   // USE STRICT
   "use strict";
+ try {
 
+    //Gender pie chart 
+    var ctx = document.getElementById("recent-pie-chart-1");
+    if (ctx) {
+      ctx.height = 200;
+      var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          datasets: [{
+            data: [950, 350],
+            backgroundColor: [
+              "rgba(0, 123, 255,0.9)",
+              "rgba(0, 123, 255,0.7)",
+              //"rgba(0, 123, 255,0.5)"
+              //"rgba(0,0,0,0.07)"
+            ],
+            hoverBackgroundColor: [
+              "rgba(0, 123, 255,0.9)",
+              "rgba(0, 123, 255,0.7)",
+              //"rgba(0, 123, 255,0.5)"
+             // "rgba(0,0,0,0.07)"
+            ]
+
+          }],
+          labels: [
+            "Male",
+            "Female",
+            //"Green"
+          ]
+        },
+        options: {
+          legend: {
+            position: 'top',
+            labels: {
+              fontFamily: 'Poppins'
+            }
+
+          },
+          responsive: true
+        }
+      });
+    }
+
+ //Religion pie chart 
+    var ctx = document.getElementById("percent-chart-religion");
+    if (ctx) {
+      ctx.height = 200;
+      var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          datasets: [{
+            data: [650, 350, 200, 100],
+            backgroundColor: [
+              "rgba(0, 123, 255,0.9)",
+              "rgba(0, 123, 255,0.7)",
+              "rgba(0, 123, 255,0.5)",
+              "rgba(0,0,0,0.07)"
+            ],
+            hoverBackgroundColor: [
+              "rgba(0, 123, 255,0.9)",
+              "rgba(0, 123, 255,0.7)",
+              "rgba(0, 123, 255,0.5)",
+              "rgba(0,0,0,0.07)"
+            ]
+
+          }],
+          labels: [
+            "Christian",
+            "Buddhist",
+            "Hindu",
+            "Others"
+          ]
+        },
+        options: {
+          legend: {
+            position: 'top',
+            labels: {
+              fontFamily: 'Poppins'
+            }
+
+          },
+          responsive: true
+        }
+      });
+    }
+//Age bar chart 
+var ctx = document.getElementById("singelBarChart");
+    if (ctx) {
+      ctx.height = 150;
+      var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ["1993", "1994", "1995", "1996", "1997", "1998"],
+          datasets: [
+            {
+              label: "My First dataset",
+              data: [120, 175, 500, 350, 100, 55],
+              borderColor: "rgba(0, 123, 255, 0.9)",
+              borderWidth: "0",
+              backgroundColor: "rgba(0, 123, 255, 0.5)"
+            }
+          ]
+        },
+        options: {
+          legend: {
+            position: 'top',
+            labels: {
+              fontFamily: 'Poppins'
+            }
+
+          },
+          scales: {
+            xAxes: [{
+              ticks: {
+                fontFamily: "Poppins"
+
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                beginAtZero: true,
+                fontFamily: "Poppins"
+              }
+            }]
+          }
+        }
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
+  //No change anymore !!!!!!!
   try {
     //WidgetChart 1
     var ctx = document.getElementById("widgetChart1");
@@ -1105,54 +1238,7 @@
   }
 
 
-  try {
-
-    //pie chart
-    var ctx = document.getElementById("pieChart");
-    if (ctx) {
-      ctx.height = 200;
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-          datasets: [{
-            data: [45, 25, 20, 10],
-            backgroundColor: [
-              "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
-              "rgba(0, 123, 255,0.5)",
-              "rgba(0,0,0,0.07)"
-            ],
-            hoverBackgroundColor: [
-              "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
-              "rgba(0, 123, 255,0.5)",
-              "rgba(0,0,0,0.07)"
-            ]
-
-          }],
-          labels: [
-            "Green",
-            "Green",
-            "Green"
-          ]
-        },
-        options: {
-          legend: {
-            position: 'top',
-            labels: {
-              fontFamily: 'Poppins'
-            }
-
-          },
-          responsive: true
-        }
-      });
-    }
-
-
-  } catch (error) {
-    console.log(error);
-  }
+ 
 
   try {
 
@@ -1201,7 +1287,7 @@
   try {
 
     // single bar chart
-    var ctx = document.getElementById("singelBarChart");
+    var ctx = document.getElementById("singelBarChart1");
     if (ctx) {
       ctx.height = 150;
       var myChart = new Chart(ctx, {
