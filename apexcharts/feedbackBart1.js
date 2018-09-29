@@ -19,7 +19,7 @@ var options = {
                 }
             },
             title: {
-                text: 'The teacher has enhanced my thinking ability'
+                text: 'What is your overall opinion of the module?'
             },
             colors: ['#00E396'],
             dataLabels: {

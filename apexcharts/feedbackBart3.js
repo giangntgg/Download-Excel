@@ -16,7 +16,7 @@ var options = {
                 data: feedbackApp.t3[feedbackApp.moduleCode]
             }],
             title: {
-                text: 'The teacher has increased my interest in the subject.'
+                text: 'I rate this module as:'
             },
             xaxis: {
                 categories: ['1','2','3','4','5'],

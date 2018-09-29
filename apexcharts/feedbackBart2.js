@@ -25,7 +25,7 @@ var options = {
                 colors: ['#fff']
             },
             title: {
-                text: 'The teacher provided timely and useful feedback.'
+                text: 'The grade that I am most likely to get in the module is: '
             },
             series: [{
                 name: '1',
