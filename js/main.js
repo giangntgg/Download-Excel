@@ -7,21 +7,21 @@
     //Gender pie chart 
     var ctx = document.getElementById("recent-pie-chart-1");
     if (ctx) {
-      ctx.height = 200;
+      ctx.height = 300;
       var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
           datasets: [{
             data: [950, 350],
             backgroundColor: [
-              "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
+              "rgba(0, 0, 255,0.9)",
+              "rgba(255, 0, 0,0.7)",
               //"rgba(0, 123, 255,0.5)"
               //"rgba(0,0,0,0.07)"
             ],
             hoverBackgroundColor: [
-              "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
+              "rgba(0, 0, 255,0.9)",
+              "rgba(255, 0, 0,0.7)",
               //"rgba(0, 123, 255,0.5)"
              // "rgba(0,0,0,0.07)"
             ]
@@ -49,23 +49,23 @@
  //Religion pie chart 
     var ctx = document.getElementById("percent-chart-religion");
     if (ctx) {
-      ctx.height = 200;
+      ctx.height = 400;
       var myChart = new Chart(ctx, {
         type: 'pie',
         data: {
           datasets: [{
             data: [650, 350, 200, 100],
             backgroundColor: [
-              "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
-              "rgba(0, 123, 255,0.5)",
-              "rgba(0,0,0,0.07)"
+              "rgba(0, 0, 255,0.9)",
+              "rgba(255, 0, 0,0.7)",
+              "rgba(0, 100, 0,0.5)",
+              "rgba(255,255,0,0.7)"
             ],
             hoverBackgroundColor: [
-              "rgba(0, 123, 255,0.9)",
-              "rgba(0, 123, 255,0.7)",
-              "rgba(0, 123, 255,0.5)",
-              "rgba(0,0,0,0.07)"
+              "rgba(0, 0, 255,0.9)",
+              "rgba(255, 0, 0,0.7)",
+              "rgba(0, 100, 0,0.5)",
+              "rgba(255,255,0,0.7)"
             ]
 
           }],
@@ -73,7 +73,7 @@
             "Christian",
             "Buddhist",
             "Hindu",
-            "Others"
+            "Others",
           ]
         },
         options: {
@@ -91,14 +91,14 @@
 //Age bar chart 
 var ctx = document.getElementById("singelBarChart");
     if (ctx) {
-      ctx.height = 150;
+      ctx.height = 300;
       var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
           labels: ["1993", "1994", "1995", "1996", "1997", "1998"],
           datasets: [
             {
-              label: "My First dataset",
+              label: "Number of students",
               data: [120, 175, 500, 350, 100, 55],
               borderColor: "rgba(0, 123, 255, 0.9)",
               borderWidth: "0",
@@ -1055,7 +1055,7 @@ var ctx = document.getElementById("singelBarChart");
           labels: ["Sun", "Mon", "Tu", "Wed", "Th", "Fri", "Sat"],
           datasets: [
             {
-              label: "My First dataset",
+              label: "Born in",
               data: [40, 55, 75, 81, 56, 55, 40],
               borderColor: "rgba(0, 123, 255, 0.9)",
               borderWidth: "0",
