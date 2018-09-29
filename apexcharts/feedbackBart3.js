@@ -1,6 +1,6 @@
 var options = {
             chart: {
-                height: 350,
+                height: 400,
                 type: 'bar',
             },
             plotOptions: {
