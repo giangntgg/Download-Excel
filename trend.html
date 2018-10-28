@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Top Skills Demanded by Employers Dashboard</title>
+        <title>Trends Dashboard</title>
         <meta name="description" content="A dashboard on all recent quizzes of your module this year">
         
          <!-- Fontfaces CSS-->
@@ -85,65 +85,98 @@
     </header>
     </div>
     <!-- HEADER DESKTOP-->
+
     
-         
         <div class="page-container">
             <div class="main-content">
                 <div class="section__content section__content--p30"> 
-    <div class = "row">
-        <div class="col-md-12" style = "padding-bottom:20px;margin-bottom:20px">
-                <h1 class = "title-0"> Top Skills demanded by employers Dashboard </h1>
-                <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#smallmodal">What's this?</button>
-        </div>
-    </div> 
-                    
-    <!--colspan6-->
-    <div id="app">
-         <div v-if="Trend">
-            <div class = 'au-card recent-report'>
-                <div class = "chart-info">
-                    <h3 class = 'title-2 tm-b-5'>{{ Trend.title}}</h3>
+                    <div class = "row">
+                        <div class="col-md-12" style = "padding-bottom:20px;margin-bottom:20px">
+                                <h1 class = "title-0"> Top Skills demanded by employers Dashboard </h1>
+                                <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#mediumModal">What's this?</button>
+                        </div>
+                    </div> 
+                    <!--colspan6-->
+                    <div id="app">
+                        <div v-if="Trend">
+                            <div class = 'au-card recent-report'>
+                                <div class = "chart-info">
+                                    <h3 class = 'title-2 tm-b-5'>{{ Trend.title}}</h3>
+                                </div>
+                                <column-chart :data ="Trend.data" :download='true'  xtitle="Skills" ytitle="# of jobs"></column-chart>  
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <column-chart :data ="Trend.data" :download='true'  xtitle="Skills" ytitle="# of jobs"></column-chart> 
-            </div>
-        </div>
-        
-    </div>
-                </div>
-                
-                
-     <!-- modal medium -->
-			<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-lg" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<p>
-								This dahsboard is meant for Faculty Staff or students to view. The visualisation below shows the top 10 most popular skills demanded in the current job market. With this information, students can go online and equip themselves with the skills at their own time or choose to study modules related to these skills in order to stand at a better advantage in the job market. For faculty staff, they can choose to conduct workshop on most demanded skills to equip students for future jobs.
+              
+    
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+
+    <!-- modal medium -->
+            <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="mediumModalLabel">Top skills demanded</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                This dahsboard is meant for Faculty Staff or students to view. The visualisation below shows the top 10 most popular skills demanded in the current job market. With this information, students can go online and equip themselves with the skills at their own time or choose to study modules related to these skills in order to stand at a better advantage in the job market. For faculty staff, they can choose to conduct workshop on most demanded skills to equip students for future jobs.
                              
-							</p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">OK I got it</button>
-						</div>
-					</div>
-				</div>
-			</div>
-        </div>
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">OK I got it</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<!-- end modal medium -->
     </div>
-        <!-- end modal medium -->            
+    </div>
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Datatable -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="https://gstatic.com/firebasejs/4.2.0/firebase.js"></script>
     <script src="https://unpkg.com/vue"></script>
-	<script src="https://unpkg.com/chart.js@2.7.2/dist/Chart.bundle.js"></script>
-	<script src="https://unpkg.com/vue-chartkick@0.4.0"></script>
-	<script src="https://gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 	<script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
-	
-    <script>
+    <script src="https://unpkg.com/chart.js@2.7.2/dist/Chart.bundle.js"></script>
+    <script src="https://unpkg.com/vue-chartkick@0.4.0"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Apex charts-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+   <script>
         var config = {
             databaseURL: 'https://dataformx.firebaseio.com/' //put in your database URL here
         }
@@ -165,5 +198,7 @@
             } 
         })
     </script>    
-    </body>
+</body>
+
 </html>
+<!-- end document-->

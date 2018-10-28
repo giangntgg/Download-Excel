@@ -93,13 +93,11 @@
     <div class = "row">
         <div class="col-md-12" style = "padding-bottom:20px;margin-bottom:20px">
                 <h1 class = "title-0"> Mid Term Exams Dashboard </h1>
-                <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#smallmodal">What's this?</button>
+                <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#mediumModal">What's this?</button>
         </div>
     </div> 
-                                        <!--colspan6-->
+    <!--colspan6-->
     <div id="app">
-       
-          
                 <div v-if="mye.myeq1">
                     <div class = 'au-card recent-report'>
                             <div class = "chart-info">
@@ -162,26 +160,26 @@
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
 
-    <!-- modal small -->
-			<div class="modal fade" id="smallmodal" tabindex="-1" role="dialog" aria-labelledby="smallmodalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-sm" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="smallmodalLabel">Student Performance in Mid Term Exam</h5>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
+    <!-- modal medium -->
+            <div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="mediumModalLabel">Student Performance in Mid Term Exam</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
                             <p> This dashboard showcases the scores attained by students in each question of MYE respectively. This is to show the breakdown of scores for each component. This assumes that each question tests one or multiple concepts, if one question has more people who score lower marks, this means that students are weak at that particular concept. This helps us to understand which concept students are weak on. </p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">OK I got it</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- end modal small -->
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">OK I got it</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<!-- end modal medium -->
     </div>
     </div>
     <!-- Jquery JS-->
