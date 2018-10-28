@@ -1,42 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
-
-    <!-- Title Page-->
-    <title>Dashboard</title>
-
-    <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Continuous Assessment Dashboard</title>
+        <meta name="description" content="A dashboard on all recent quizzes of your module this year">
+        
+         <!-- Fontfaces CSS-->
+        <link href="css/font-face.css" rel="stylesheet" media="all">
+        <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+        <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+        <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+        <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+        <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+        <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+        <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+        <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+        <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+        <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
-
-</head>
-
-<body class="animsition">
-    <div class="page-wrapper">
+        <link href="css/theme.css" rel="stylesheet" media="all">
+        
+    </head>
+    
+    <body>
 
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
@@ -84,112 +76,154 @@
         </aside>
         <!-- END MENU SIDEBAR-->
 
-        <!-- PAGE CONTAINER-->
+          <!-- HEADER DESKTOP-->
+    <div id="groupingsApp">
+    <header class="header-desktop">
+        <div class="section__content section__content--p30">
+                <div class="header-wrap"></div>
+        </div>
+    </header>
+    </div>
+    <!-- HEADER DESKTOP-->
+    
+         
         <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            <div id="groupingsApp">
-            <header class="header-desktop">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="header-wrap">
-                    </div>
-                </div>
-            </header>
-            <!-- HEADER DESKTOP-->
-
-            <!-- MAIN CONTENT-->
             <div class="main-content">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                    	<!-- Header-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">Student Performance in CA1 and CA2</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of header-->
-                        <br>
-                        <div class="row">
-                            <div class="col-lg-8">
-                                <div>
-                                    <p> This dashboard showcases the number of students' choices for each option in CA1 and CA2. This aims to help professors to understand which option has most number and least number of students selected, vs the correct answers. This helps us to understand which concept students are weak on.  </p>
-                                </div> 
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <!--colspan6-->
+                <div class="section__content section__content--p30"> 
+    <div class = "row">
+        <div class="col-md-12" style = "padding-bottom:20px;margin-bottom:20px">
+                <h1 class = "title-0"> Continuous Assessment Dashboard </h1>
+                <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#smallmodal">What's this?</button>
+        </div>
+    </div> 
+                                       
+    
+    <!--colspan6-->
     <div id="app">
         <div v-if="caquiz.ca1.ca1q1">
-            {{ caquiz.ca1.ca1q1.title }}
-            <column-chart :data = "caquiz.ca1.ca1q1.data"></column-chart>  
+            <div class = 'au-card recent-report'>
+                <div class = "chart-info">
+                    <h3 class = 'title-2 tm-b-5'>{{ caquiz.ca1.ca1q1.title }}</h3>
+                </div>
+                <column-chart :data ="caquiz.ca1.ca1q1.data" :download='true'  xtitle="Qn Options" ytitle="# of students"></column-chart> 
+            </div>
         </div>
         
     <!--colspan6-->
         <div v-if="caquiz.ca1.ca1q2">
-            {{ caquiz.ca1.ca1q2.title }}
-            <column-chart :data = "caquiz.ca1.ca1q2.data"></column-chart>  
-        </div> 
-    
-    <!--colspan12 -->
-        <div v-if="caquiz.ca1.ca1q3">
-            {{ caquiz.ca1.ca1q3.title }}
-            <column-chart :data = "caquiz.ca1.ca1q3.data"></column-chart>  
-        </div>
-    
-    <!--colspan12 -->
-        <div v-if="caquiz.ca1.ca1q4">
-            {{ caquiz.ca1.ca1q4.title }}
-            <column-chart :data = "caquiz.ca1.ca1q4.data"></column-chart>     
+            <div class = 'au-card recent-report'>
+                <div class = "chart-info">
+                    <h3 class = 'title-2 tm-b-5'>{{ caquiz.ca1.ca1q2.title }}</h3>
+                </div>
+                <column-chart :data ="caquiz.ca1.ca1q2.data" :download='true'  xtitle="Qn Options" ytitle="# of students"></column-chart>  
+            </div>
         </div>
         
-         <div v-if="caquiz.ca1.ca1q5">
-            {{ caquiz.ca1.ca1q5.title }}
-            <column-chart :data = "caquiz.ca1.ca1q5.data"></column-chart>     
+        <div v-if="caquiz.ca1.ca1q3">
+            <div class = 'au-card recent-report'>
+                <div class = "chart-info">
+                    <h3 class = 'title-2 tm-b-5'>{{ caquiz.ca1.ca1q3.title }}</h3>
+                </div>
+                <column-chart :data ="caquiz.ca1.ca1q3.data" :download='true'  xtitle="Qn Options" ytitle="# of students"></column-chart>  
+            </div>
+        </div>
+        
+        <div v-if="caquiz.ca1.ca1q4">
+            <div class = 'au-card recent-report'>
+                <div class = "chart-info">
+                    <h3 class = 'title-2 tm-b-5'>{{ caquiz.ca1.ca1q4.title }}</h3>
+                </div>
+                <column-chart :data ="caquiz.ca1.ca1q4.data" :download='true'  xtitle="Qn Options" ytitle="# of students"></column-chart>  
+            </div>
+        </div>
+        
+        <div v-if="caquiz.ca1.ca1q5">
+            <div class = 'au-card recent-report'>
+                <div class = "chart-info">
+                    <h3 class = 'title-2 tm-b-5'>{{ caquiz.ca1.ca1q5.title }}</h3>
+                </div>
+                <column-chart :data ="caquiz.ca1.ca1q5.data" :download='true'  xtitle="Qn Options" ytitle="# of students"></column-chart> 
+            </div>
         </div>
         
         <div v-if="caquiz.ca2.ca2q1">
-            {{ caquiz.ca2.ca2q1.title }}
-            <column-chart :data = "caquiz.ca2.ca2q1.data"></column-chart>     
+            <div class = 'au-card recent-report'>
+                <div class = "chart-info">
+                    <h3 class = 'title-2 tm-b-5'>{{ caquiz.ca2.ca2q1.title }}</h3>
+                </div>
+                <column-chart :data ="caquiz.ca2.ca2q1.data" :download='true'  xtitle="Qn Options" ytitle="# of students"></column-chart> 
+            </div>
         </div>
         
          <div v-if="caquiz.ca2.ca2q2">
-            {{ caquiz.ca2.ca2q2.title }}
-            <column-chart :data = "caquiz.ca2.ca2q2.data"></column-chart>     
-        </div>
-        
-         <div v-if="caquiz.ca2.ca2q3">
-            {{ caquiz.ca2.ca2q3.title }}
-            <column-chart :data = "caquiz.ca2.ca2q3.data"></column-chart>     
-        </div>
-        
-         <div v-if="caquiz.ca2.ca2q4">
-            {{ caquiz.ca2.ca2q4.title }}
-            <column-chart :data = "caquiz.ca2.ca2q4.data"></column-chart>     
-        </div>
-        
-         <div v-if="caquiz.ca2.ca2q5">
-            {{ caquiz.ca2.ca2q5.title }}
-            <column-chart :data = "caquiz.ca2.ca2q5.data"></column-chart>     
-        </div>
-    </div>
-                    
-                        <!-- Footer-->
-                        
-                    </div>
+            <div class = 'au-card recent-report'>
+                <div class = "chart-info">
+                    <h3 class = 'title-2 tm-b-5'>{{ caquiz.ca2.ca2q2.title }}</h3>
                 </div>
+                <column-chart :data ="caquiz.ca2.ca2q2.data" :download='true'  xtitle="Qn Options" ytitle="# of students"></column-chart> 
             </div>
         </div>
-            <!-- END MAIN CONTENT-->
-            <!-- END PAGE CONTAINER-->
+        
+        <div v-if="caquiz.ca2.ca2q3">
+            <div class = 'au-card recent-report'>
+                <div class = "chart-info">
+                    <h3 class = 'title-2 tm-b-5'>{{ caquiz.ca2.ca2q3.title }}</h3>
+                </div>
+                <column-chart :data ="caquiz.ca2.ca2q3.data" :download='true'  xtitle="Qn Options" ytitle="# of students"></column-chart> 
+            </div>
         </div>
+        
+        <div v-if="caquiz.ca2.ca2q4">
+            <div class = 'au-card recent-report'>
+                <div class = "chart-info">
+                    <h3 class = 'title-2 tm-b-5'>{{ caquiz.ca2.ca2q4.title }}</h3>
+                </div>
+                <column-chart :data ="caquiz.ca2.ca2q4.data" :download='true'  xtitle="Qn Options" ytitle="# of students"></column-chart> 
+            </div>
+        </div>
+        
+        <div v-if="caquiz.ca2.ca2q5">
+            <div class = 'au-card recent-report'>
+                <div class = "chart-info">
+                    <h3 class = 'title-2 tm-b-5'>{{ caquiz.ca2.ca2q5.title }}</h3>
+                </div>
+                <column-chart :data ="caquiz.ca2.ca2q5.data" :download='true'  xtitle="Qn Options" ytitle="# of students"></column-chart> 
+            </div>
+        </div>
+        
 
+            </div>
+                </div>
+                
+                 <!-- modal medium -->
+			<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>
+								This dashboard showcases the number of students' choices for each option in CA1 and CA2. This aims to help professors to understand which option has most number and least number of students selected, vs the correct answers. This helps us to understand which concept students are weak on.
+                             
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">OK I got it</button>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
     </div>
-
-    <!-- Jquery JS-->
+        <!-- end modal medium -->
+       
+    
+    
+     <!-- Jquery JS-->
     <script src="vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
     <script src="vendor/bootstrap-4.1/popper.min.js"></script>
@@ -249,10 +283,5 @@
             } 
         })
     </script>    
-
-
-
-</body>
-
+    </body>
 </html>
-<!-- end document-->
