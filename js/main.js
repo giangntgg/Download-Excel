@@ -1,93 +1,31 @@
+// function snapshotToArray() {
+//   console.log(groupingsRef.child(groupingsRef[".key"]))
+//     data = Object.keys(key.child("18"));
+//     console.log(data);
+//     var tut = data.val();
+//     var keys = Object.keys(tut);
+
+//     for (var i = 0; i < keys.length; i++){
+//       var tempArr = [];
+//       var k = keys[i];
+//       var gender = tut[k].child("gender").val();
+//       var group = tut[k].child("group").val();
+//       var major = tut[k].child("major").val();
+//       var matric = tut[k].child("matric").val();
+//       var preReqGpa = tut[k].child("mpreReqGpa").val();
+//       var year = tut[k].child("year").val();
+//       tempArr = [matric,year,major,preReqGpa,gender,group]
+//       dataset.push(tempArr);
+//     }
+
+//     table.rows.add([dataSet]).draw();
+// };
+
 
 (function ($) {
   // USE STRICT
   "use strict";
  try {
-
-    //Gender pie chart 
-    var ctx = document.getElementById("recent-pie-chart-1");
-    if (ctx) {
-      ctx.height = 300;
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-          datasets: [{
-            data: [950, 350],
-            backgroundColor: [
-              "rgba(0, 0, 255,0.9)",
-              "rgba(255, 0, 0,0.7)",
-              //"rgba(0, 123, 255,0.5)"
-              //"rgba(0,0,0,0.07)"
-            ],
-            hoverBackgroundColor: [
-              "rgba(0, 0, 255,0.9)",
-              "rgba(255, 0, 0,0.7)",
-              //"rgba(0, 123, 255,0.5)"
-             // "rgba(0,0,0,0.07)"
-            ]
-
-          }],
-          labels: [
-            "Male",
-            "Female",
-            //"Green"
-          ]
-        },
-        options: {
-          legend: {
-            position: 'top',
-            labels: {
-              fontFamily: 'Poppins'
-            }
-
-          },
-          responsive: true
-        }
-      });
-    }
-
- //Religion pie chart 
-    var ctx = document.getElementById("percent-chart-religion");
-    if (ctx) {
-      ctx.height = 400;
-      var myChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-          datasets: [{
-            data: [650, 350, 200, 100],
-            backgroundColor: [
-              "rgba(0, 0, 255,0.9)",
-              "rgba(255, 0, 0,0.7)",
-              "rgba(0, 100, 0,0.5)",
-              "rgba(255,255,0,0.7)"
-            ],
-            hoverBackgroundColor: [
-              "rgba(0, 0, 255,0.9)",
-              "rgba(255, 0, 0,0.7)",
-              "rgba(0, 100, 0,0.5)",
-              "rgba(255,255,0,0.7)"
-            ]
-
-          }],
-          labels: [
-            "Christian",
-            "Buddhist",
-            "Hindu",
-            "Others",
-          ]
-        },
-        options: {
-          legend: {
-            position: 'top',
-            labels: {
-              fontFamily: 'Poppins'
-            }
-
-          },
-          responsive: true
-        }
-      });
-    }
 //Age bar chart 
 var ctx = document.getElementById("singelBarChart");
     if (ctx) {
