@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>IVLE Quiz Dashboard</title>
+        <meta name="description" content="A dashboard on all recent quizzes of your module this year">
+        
+         <!-- Fontfaces CSS-->
+        <link href="css/font-face.css" rel="stylesheet" media="all">
+        <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+        <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+        <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+        <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+        <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+        <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+        <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+        <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+        <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+        <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+        <link href="css/theme.css" rel="stylesheet" media="all">
+        
+    </head>
+    
+    <body>
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                            <li>
+                                <a href="PreRequisite.html">
+                                    <i class="fas fa-table"></i>Class Profile</a>
+                            </li>
+
+                            <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Analysis</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <li>
+                                        <a href="Quiz Analysis.html">Quiz Analysis</a>
+                                    </li>
+                                    <li>
+                                        <a href="ca.html">CA1 Analysis</a>
+                                    </li>
+                                    <li>
+                                        <a href="mye.html">Mid-term Analysis</a>
+                                    </li>
+                                    <li>
+                                        <a href="tutorial.html">Tutorial Attendance Analysis</a>
+                                    </li>
+                                    <li>
+                                        <a href="trend.html">Top Skills Demanded</a>
+                                    </li>   
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="groupings.html">
+                                    <i class="fas fa-users"></i>Groupings</a>
+                            </li>
+                            <li>
+                                <a href="License.html">
+                                    <i class="fas fa-map"></i>Credits</a>
+                            </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+        <div class="page-container">
+            <div class="main-content">
+                <div class="section__content section__content--p30">  
+
+    <div class = "row">
+        <div class="col-md-12" style = "padding-bottom:20px;margin-bottom:20px">
+                <h1 class = "title-0"> QUIZ ANALYSIS </h1>
+                <button type="button" class="btn btn-secondary mb-1" data-toggle="modal" data-target="#mediumModal">What's this?</button>
+        </div>
+    </div>  
+
+    <div id = "app">
+        
+    <div class = 'row'>
+        <div class = 'col-lg-12'>
+            <h3 class="title-2 tm-b-5" style = "margin-bottom:20px">General statistics</h3>
+            <div v-if = "Quiz.Overview.Table">
+                <div class="table-responsive table--no-card m-b-40">
+                <table class="table table-borderless table-striped table-earning">   
+                    <thead>
+                        <tr>
+                            <th>Quiz number</th>
+                            <th>25 percentile score</th> 
+                            <th>Median score</th>
+                            <th>75 percentile score</th>
+                        </tr>
+                    </thead>
+           
+                    <tr>
+                        <td> Quiz 1</td>
+                        <td v-for="index in columns">
+                            {{Quiz.Overview.Table.data[0][index]}} </td>
+                    </tr>
+           
+                    <tr>
+                        <td> Quiz 2</td>
+                        <td v-for="index in columns">
+                            {{Quiz.Overview.Table.data[1][index]}} </td>
+                    </tr>
+           
+                    <tr>
+                        <td> Quiz 3</td>
+                        <td v-for="index in columns">
+                            {{Quiz.Overview.Table.data[2][index]}} </td>
+                    </tr>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <!--Overview-->
+    <div class = 'row'>
+        <div class = 'col-lg-12' style = "padding-bottom:20px;margin-bottom:20px">
+        <h3 class="title-2 tm-b-5"> Score distribution </h3> </div></div>
+        
+    <div class = 'row'>
+        <div class = 'col-lg-4'>
+            <div v-if = "Quiz.Quiz1.Overview"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info"><h3>Quiz 1</h3>
+                    {{ Quiz.Quiz1.title }} </div>
+                    <column-chart :data="Quiz.Quiz1.Overview.data" :max = "500" :download='true'  xtitle="Total score" ytitle="# of students"></column-chart>
+                    <router-link to = "/quiz1">See more</router-link>
+                </div>
+            </div>
+        </div>
+        
+    <!--Quiz2-->
+        <div class = 'col-lg-4'>
+            <div v-if = "Quiz.Quiz2.Overview"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                    <h3>Quiz 2</h3> {{ Quiz.Quiz2.title }}</div>
+                    <column-chart :data="Quiz.Quiz2.Overview.data" :max = "500" :download='true'  xtitle="Total score" ytitle="# of students"></column-chart>
+                    <router-link to = "/quiz2">See more</router-link>
+                </div>
+            </div>
+        </div>
+    
+    <!--Quiz3-->
+        <div class = 'col-lg-4'>
+            <div v-if = "Quiz.Quiz3.Overview">
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info"><h3>Quiz 3</h3>
+                    {{ Quiz.Quiz3.title }}</div>
+                    <column-chart :data="Quiz.Quiz3.Overview.data" :max = "500" :download='true'  xtitle="Total score" ytitle="# of students"></column-chart>
+                    <router-link to = "/quiz3">See more</router-link>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    
+    <!------------------ QUIZ 1 -------------------------->
+    <!--Q1-->
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz1.Q1 && currentRoute === '/quiz1'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz1.Q1.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz1.Q1.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz1.Q1.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz1.Q1.Time && Quiz.Quiz1.AverageTime && currentRoute === '/quiz1'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz1.AverageTime[0] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz1.Q1.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+        
+   <!--Q2-->
+        
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz1.Q2 && currentRoute === '/quiz1'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz1.Q2.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz1.Q2.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz1.Q2.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz1.Q2.Time && Quiz.Quiz1.AverageTime && currentRoute === '/quiz1'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz1.AverageTime[1] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz1.Q2.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Q3-->
+        
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz1.Q3 && currentRoute === '/quiz1'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz1.Q3.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz1.Q3.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz1.Q3.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz1.Q3.Time && Quiz.Quiz1.AverageTime && currentRoute === '/quiz1'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz1.AverageTime[2] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz1.Q3.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Q4-->
+    
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz1.Q4 && currentRoute === '/quiz1'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz1.Q4.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz1.Q4.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz1.Q4.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz1.Q4.Time && Quiz.Quiz1.AverageTime && currentRoute === '/quiz1'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz1.AverageTime[3] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz1.Q4.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---------------- QUIZ 2 -------------------------->
+    <!--Q1-->
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz2.Q1 && currentRoute === '/quiz2'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz2.Q1.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz2.Q1.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz2.Q1.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz2.Q1.Time && Quiz.Quiz1.AverageTime && currentRoute === '/quiz2'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz2.AverageTime[0] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz2.Q1.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+        
+   <!--Q2-->
+        
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz2.Q2 && currentRoute === '/quiz2'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz2.Q2.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz2.Q2.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz2.Q2.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz2.Q2.Time && Quiz.Quiz2.AverageTime && currentRoute === '/quiz2'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz2.AverageTime[1] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz2.Q2.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Q3-->
+        
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz2.Q3 && currentRoute === '/quiz2'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz2.Q3.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz2.Q3.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz2.Q3.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz2.Q3.Time && Quiz.Quiz2.AverageTime && currentRoute === '/quiz2'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz2.AverageTime[2] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz2.Q3.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Q4-->
+    
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz2.Q4 && currentRoute === '/quiz2'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz2.Q4.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz2.Q4.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz2.Q4.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz2.Q4.Time && Quiz.Quiz2.AverageTime && currentRoute === '/quiz2'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz2.AverageTime[3] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz2.Q4.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!---------------- QUIZ 3 -------------------------->
+    <!--Q1-->
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz3.Q1 && currentRoute === '/quiz3'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz3.Q1.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz3.Q1.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz3.Q1.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz3.Q1.Time && Quiz.Quiz3.AverageTime && currentRoute === '/quiz3'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz3.AverageTime[0] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz3.Q1.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+        
+   <!--Q2-->
+        
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz3.Q2 && currentRoute === '/quiz3'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz3.Q2.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz3.Q2.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz3.Q2.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz3.Q2.Time && Quiz.Quiz3.AverageTime && currentRoute === '/quiz3'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz3.AverageTime[1] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz3.Q2.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Q3-->
+        
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz3.Q3 && currentRoute === '/quiz3'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz3.Q3.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz3.Q3.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz3.Q3.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz3.Q3.Time && Quiz.Quiz3.AverageTime && currentRoute === '/quiz3'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz3.AverageTime[2] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz3.Q3.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Q4-->
+    
+    <div class = 'row'>
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz3.Q4 && currentRoute === '/quiz3'"> 
+                <div class = 'au-card recent-report'>
+                    <h3>{{ Quiz.Quiz3.Q4.title }}</h3>
+                    <div class = "chart-info">
+                        Correct answer: {{ Quiz.Quiz3.Q4.Answer }}
+                    </div>
+                    <bar-chart :data="Quiz.Quiz3.Q4.Choice.data"  xtitle="# of students" ytitle="Choice" :download = "true"></bar-chart>
+                </div> 
+            </div> 
+        </div>
+        
+        <div class = 'col-lg-6'>
+            <div v-if = "Quiz.Quiz3.Q4.Time && Quiz.Quiz3.AverageTime && currentRoute === '/quiz3'"> 
+                <div class = 'au-card recent-report'>
+                    <div class = "chart-info">
+                        <h3 class = "title-1">{{ Quiz.Quiz3.AverageTime[3] }} minutes </h3>
+                        <p> is the average time taken to complete this question </p>
+                    </div>
+                        <line-chart :data="Quiz.Quiz3.Q4.Time.data" xtitle="Time taken (min)" ytitle="# of students" :download = "true"></line-chart>
+        
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class = 'row'>
+        <div class = 'col-sm-12' v-if = "currentRoute != '/'" style = "padding-bottom:20px;margin-bottom:20px">
+            <router-link to = "/">Collapse</router-link>
+        </div>
+    </div>
+        
+    </div>
+    </div>
+        
+    <!-- modal medium -->
+			<div class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="mediumModalLabel">Medium Modal</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<p>
+								This dashboard visualises your class performance on weekly quizzes (e.g. on IVLE). Score distribution and time taken for each question helps you identify which concept the students are weak at. 
+							</p>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">OK I got it</button>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+    </div>
+        <!-- end modal medium -->
+        
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script src="https://unpkg.com/chart.js@2.7.2/dist/Chart.bundle.js"></script>
+	<script src="https://unpkg.com/vue-chartkick@0.4.0"></script>
+	<script src="https://gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	<script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+        
+    <!-- Jquery JS-->
+	<script src="vendor/jquery-3.2.1.min.js"></script>
+	<!-- Bootstrap JS-->
+	<script src="vendor/bootstrap-4.1/popper.min.js"></script>
+	<script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+	<!-- Vendor JS       -->
+	<script src="vendor/slick/slick.min.js"></script>
+	<script src="vendor/wow/wow.min.js"></script>
+	<script src="vendor/animsition/animsition.min.js"></script>
+	<script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+	<script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+	<script src="vendor/counter-up/jquery.counterup.min.js"></script>
+	<script src="vendor/circle-progress/circle-progress.min.js"></script>
+	<script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+	<script src="vendor/chartjs/Chart.bundle.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<!-- Main JS-->
+	<script src="js/main.js"></script> 
+
+	<script>
+        const temp = { template: '<div>TEMP</div>' }
+
+        const routes = [
+            { path: '/quiz1', component: temp },
+            { path: '/quiz2', component: temp },
+            { path: '/quiz3', component: temp },
+            { path: '/', component: temp },
+        ]
+
+        const router = new VueRouter({
+            routes 
+        })
+        
+        var config = {
+            databaseURL: 'https://dataforgiang.firebaseio.com/' //put in your database URL here
+        }
+        
+        firebase.initializeApp(config)
+        
+        var db = firebase.database()
+        var dataRef = db.ref('Quiz')
+        
+        new Vue ({
+            el: '#app',
+            router,
+            data: {
+                columns: [
+					'2',
+					'0',
+					'1',
+				]
+            },
+            firebase: {
+                Quiz: {
+                    source: dataRef,
+                    asObject: true,
+                }
+        },  
+        computed: {
+            currentRoute () {
+                return this.$route.path
+            }         
+        }  
+        })
+    </script>
+    </body>
+</html>

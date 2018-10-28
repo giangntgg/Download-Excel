@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Dashboard</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+    <div class="page-wrapper">
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                            <li>
+                                <a href="PreRequisite.html">
+                                    <i class="fas fa-table"></i>Class Profile</a>
+                            </li>
+
+                            <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Analysis</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    <li>
+                                        <a href="Quiz Analysis.html">Quiz Analysis</a>
+                                    </li>
+                                    <li>
+                                        <a href="ca.html">CA1 Analysis</a>
+                                    </li>
+                                    <li>
+                                        <a href="mye.html">Mid-term Analysis</a>
+                                    </li>
+                                    <li>
+                                        <a href="tutorial.html">Tutorial Attendance Analysis</a>
+                                    </li>
+                                    <li>
+                                        <a href="trend.html">Top Skills Demanded</a>
+                                    </li>	
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="groupings.html">
+                                    <i class="fas fa-users"></i>Groupings</a>
+                            </li>
+                            <li>
+                                <a href="License.html">
+                                    <i class="fas fa-map"></i>Credits</a>
+                            </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <div id="groupingsApp">
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                    	<!-- Header-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">BT3103</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of header-->
+                        <!-- Overview-->
+                        <div class="row m-t-25">
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c1">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-account-o"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{{tutClass}}</h2>
+                                                <span>Tutorial class</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+                                <div class="overview-item overview-item--c2">
+                                    <div class="overview__inner">
+                                        <div class="overview-box clearfix">
+                                            <div class="icon">
+                                                <i class="zmdi zmdi-star-circle"></i>
+                                            </div>
+                                            <div class="text">
+                                                <h2>{{numStd}}</h2>
+                                                <span>Number of students</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of overview-->
+                        <!-- Form to key in inputs-->
+                        <div class="row">
+                        	<div class="col-md-2"></div>
+                        	<div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong>Generate your groups</strong>
+                                    </div>
+                                    <div class="card-body card-block">
+                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Tutorial class</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input v-model.trim="tutClass" placeholder="Tutorial class" class="form-control">
+                                                    <small class="form-text text-muted">Enter your tutorial class (e.g. 18)</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="text-input" class=" form-control-label">Number of groups</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <input v-model.trim="numGroup" placeholder="Number of groups" class="form-control">
+                                                    <small class="form-text text-muted">Enter desired number of groups</small>
+                                                </div>
+                                            </div>
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Group By: </label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="select" id="select" v-model="groupBy" class="form-control">
+                                                        <option value="">Please select your option</option>
+                                                        <option value="gender">Gender</option>
+                                                        <option value="major">Major</option>
+                                                        <option value="year">Year</option>
+                                                        <option value="gpa">Grades of pre-req module</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button @click="submit()" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-dot-circle-o"></i> Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of form to key in inputs-->
+                        <!-- Table to show groupings-->
+						<div class="row">
+							<div class="col-md-12">
+								<table id="groupings" class="display">
+								    <thead>
+								        <tr>
+								            <th>Matric number</th>
+								            <th>Year</th>
+								            <th>Major</th>
+								            <th>Grades of pre requisite module</th>
+								            <th>Gender</th>
+								            <th>Group</th>
+								        </tr>
+								    </thead>
+								</table>
+							</div>
+						</div>
+                        <!-- End of table to show groupungs-->
+                        <!-- Footer-->
+                        </div>
+                </div>
+            </div>
+        </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
+
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="vendor/select2/select2.min.js">
+    </script>
+
+    <!-- Datatable -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="https://gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+    <script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+    <script src="js/groupingsVue.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- Apex charts-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
+
+</body>
+
+</html>
+<!-- end document-->
