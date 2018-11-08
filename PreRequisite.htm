@@ -331,7 +331,7 @@
 
         const routes = [
             { path: '/major', component: temp},
-            { path: '/', component: temp},
+            { path: '/', component: temp, meta: { scrollToTop: true }},
         ]
         
         const scrollBehaviour = (to, from, savedPosition) => {
