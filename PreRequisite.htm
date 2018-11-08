@@ -53,9 +53,9 @@
     </div>  
     <!--colspan6-->
     <div id="app">
-        <div class = 'row'>
+        <div class = 'row' id = "major">
             <div class = 'col-lg-6'>
-                <div v-if="PreRequisite.Major" id = "major">
+                <div v-if="PreRequisite.Major">
                     <div class = 'au-card recent-report'>
                             <div class = "chart-info">
                                 <h3 class = 'title-2 tm-b-5'> Most Popular {{ PreRequisite.Major.title }}</h3>
@@ -107,9 +107,9 @@
         </div>
         
     <!-- colspan 12 Major extension -->
-        <div class = 'row' id = "extension">
+        <div class = 'row'>
             <div class = 'col-lg-12'>
-                <div v-if = "PreRequisite.Major && currentRoute === '/major'"> 
+                <div v-if = "PreRequisite.Major && currentRoute === '/major'" id = "extension"> 
                     <div class = 'au-card recent-report'>
                         <div class = "chart-info">
                             <h3> Full list of major distribution </h3>
@@ -299,14 +299,14 @@
 			</div>
 			<!-- end modal large -->
         
-    	<script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue"></script>
 	<script src="https://unpkg.com/chart.js@2.7.2/dist/Chart.bundle.js"></script>
-    	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
 	<script src="https://unpkg.com/vue-chartkick@0.4.0"></script>
 	<script src="https://gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 	<script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
     <!--for Bootstrap Vue JS table --> 
-    	<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
     <!-- Jquery JS-->
 	<script src="vendor/jquery-3.2.1.min.js"></script>
 	<!-- Bootstrap JS-->
@@ -342,15 +342,19 @@
                 if (to.hash) {
                     position.selector = to.hash
                 }
-		if (to.hash === '#major') {
-        		position.offset = { y: 100 }
-      		}
+		if (to.matched.some(m => m.meta.scrollToTop)) {
+     			 // cords will be used if no selector is provided,
+      			// or if the selector didn't match any element.
+      			position.x = 0
+      			position.y = 0
+    		}
                 return position
             }
         }
         
         const router = new VueRouter({
             mode: "history",
+	base: __dirname,
             scrollBehaviour,
             routes 
         })
