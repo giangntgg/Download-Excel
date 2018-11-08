@@ -26,15 +26,6 @@
     <!-- Main CSS-->
         <link href="css/theme.css" rel="stylesheet" media="all">
         
-        <script>
-            (function(){
-                var redirect = sessionStorage.redirect;
-                delete sessionStorage.redirect;
-                if (redirect && redirect != location.href) {
-                    history.replaceState(null, null, redirect);
-                }
-            })();
-        </script>
     </head>
     
     <body>
